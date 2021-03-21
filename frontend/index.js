@@ -1,4 +1,4 @@
-var income = 1077000;
+var income = 10770000;
 var options = ["old", "new"];
 var tax_regime = options[0];
 var standard_deduction = 50000;
