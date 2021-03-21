@@ -6,8 +6,24 @@
         <div class = "header">
             Tax Calculator 2020-21
         </div>
-        <div>
-            
+        <div class = "content">
+            <form name = "tax-form" class="tax-form">
+                <div class="income">
+                    <label class="income-label">Enter Income : </label>
+                    <input type="text" class="income-value" />
+                </div>
+                <div class = "deductions">
+                    <label class="deductions-label">Enter Deductions</label>
+                    <input type="text" class="deductions-value" />
+                </div>
+                <div class="submit-button">
+                    <button class="submit-btn" onclick="CalculateTax()">SUBMIT</button>
+                </div>
+            </form>
+            <div class="output-text">
+
+            </div>  
         </div>
     </body>
+    <script src = "index.js"></script>
 </html>

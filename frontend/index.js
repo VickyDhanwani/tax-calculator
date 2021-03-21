@@ -1,4 +1,4 @@
-var income = 10770000;
+var income = parseInt(document.getElementsByClassName("income-value")[0].value);
 var options = ["old", "new"];
 var tax_regime = options[0];
 var standard_deduction = 50000;
@@ -14,8 +14,8 @@ var i, j, k;
 var t_income;
 var slab_index;
 var tax_calculated;
-var total_deductions;
-
+var total_deductions = parseInt(document.getElementsByClassName("deductions-value")[0].value);
+console.log(total_deductions, income);
 CalculateTaxFunction = (slab, income, UpperLimits, LowerLimits, SlabValues) => {
     var i = 0;
     var CalculatedTax = 0;
@@ -45,33 +45,28 @@ CalculateTaxSlabIndex = (income, UpperLimits) => {
 }
 
 if(tax_regime === options[0]) {
-    if(deduction_value_under_80c > 150000) {
-        console.log("Your eligible deductions are ", deduction_value_under_80c, " but only 1,50,000 will be considered");
-        deduction_value_under_80c = 150000;
-    }
-    if(deduction_value_under_80d > 50000) {
-        console.log("Your eligible deductions are ", deduction_value_under_80d, " but only 50,000 will be considered");
-        deduction_value_under_80c = 50000;
-    }
-    total_deductions = standard_deduction + deduction_value_under_80c + deduction_value_under_80d;
-    console.log("Your total deduction is ", total_deductions);
-    t_income = income - total_deductions;
-    tax_calculated = 0;
-    slab_index = 0;
-    console.log("Calculating...");
-    slab_index = CalculateTaxSlabIndex(t_income, old_tax_regime_upper_limit);
-    console.log("You fit under ",old_tax_regime_slabs[slab_index], " tax slab.");
-    tax_calculated = CalculateTaxFunction(slab_index, t_income, old_tax_regime_upper_limit, old_tax_regime_lower_limit, old_tax_slabs);
-    console.log("Total calculated tax under new regime is : ", tax_calculated);
+
+	total_deductions += standard_deduction
+	console.log("Your total deduction is ", total_deductions);
+	t_income = income - total_deductions;
+	tax_calculated = 0;
+	slab_index = 0;
+	console.log("Calculating...");
+	slab_index = CalculateTaxSlabIndex(t_income, old_tax_regime_upper_limit);
+	console.log("You fit under ",old_tax_regime_slabs[slab_index], " tax slab.");
+	tax_calculated = CalculateTaxFunction(slab_index, t_income, old_tax_regime_upper_limit, old_tax_regime_lower_limit, old_tax_slabs);
+	console.log("Total calculated tax under new regime is : ", tax_calculated);
 }
 else if(tax_regime === options[1]) {
-    i = 0;
-    t_income = income;
-    tax_calculated = 0;
-    slab_index = 0;
-    console.log("Calculating...");
-    slab_index = CalculateTaxSlabIndex(t_income, new_tax_regime_upper_limit);
-    console.log("You fit under ",new_tax_regime_slabs[slab_index], " tax slab.");
-    tax_calculated = CalculateTaxFunction(slab_index, t_income, new_tax_regime_upper_limit, new_tax_regime_lower_limit, new_tax_slabs);
-    console.log("Total calculated tax under new regime is : ", tax_calculated);
+	i = 0;
+	t_income = income;
+	tax_calculated = 0;
+	slab_index = 0;
+	console.log("Calculating...");
+	slab_index = CalculateTaxSlabIndex(t_income, new_tax_regime_upper_limit);
+	console.log("You fit under ",new_tax_regime_slabs[slab_index], " tax slab.");
+	tax_calculated = CalculateTaxFunction(slab_index, t_income, new_tax_regime_upper_limit, new_tax_regime_lower_limit, new_tax_slabs);
+	console.log("Total calculated tax under new regime is : ", tax_calculated);
 }
+
+document.getElementsByClassName("output-text").innerHTML = "dsjfndsf";
