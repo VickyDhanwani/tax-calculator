@@ -2,12 +2,6 @@ var income = 10770000;
 var options = ["old", "new"];
 var tax_regime = options[0];
 var standard_deduction = 50000;
-var deduction_options = ["Public Provident Fund", "Employee Provident Fund", 
-    "National Savings Certificate", "Equity Linked Savings Scheme", 
-    "5 years Fixed Deposit", "other" ];
-var deduction_values = [0, 0, 0, 0, 0, 0]
-var deduction_value_under_80c = 114000;
-var deduction_value_under_80d = 0;
 var old_tax_regime_upper_limit = [249999, 499999, 999999, 100000000000];
 var old_tax_regime_lower_limit = [0, 250000, 500000, 1000000];
 var old_tax_regime_slabs = ["0 - 2.5L", "2.5L - 5.0L", "5.0 - 10.0L", "10.0 - 15.0L"];
